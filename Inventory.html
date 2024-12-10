@@ -42,7 +42,90 @@
 </head>
 
 <body>
+  <div class="modal fade" id="addStock" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Stock</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+       <form action="Users.html">
 
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">IMEI No :</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Model :</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+        </div>
+
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Storage :</label>
+          <select class="form-select ">
+            <option value="">32</option>
+            <option value="">64</option>
+            <option value="">128</option>
+            <option value="">256</option>
+            <option value="">512</option>
+
+
+
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Color :</label>
+          <select class="form-select ">
+            <option value="">White</option>
+            <option value="">Black</option>
+            <option value="">Red</option>
+            <option value="">Deep Purple</option>
+            <option value="">Blue</option>
+
+
+
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Grade :</label>
+          <select class="form-select ">
+            <option value="">A+</option>
+            <option value="">A</option>
+            <option value="">AB</option>
+            <option value="">B</option>
+            <option value="">C</option>
+
+
+
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Location :</label>
+          <select class="form-select ">
+            <option value="">Repairing Solution</option>
+            <option value="">Received</option>
+            <option value="">Testing</option>
+            <option value="">Carlos</option>
+            <option value="">Bobs Polishing</option>
+            <option value="">Returns</option>
+            <option value="">Salvage Stuff</option>
+            <option value="">Stock</option>
+
+
+
+
+          </select>
+        </div>
+       </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -170,20 +253,9 @@
           <span>Inventory</span>
         </a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link " href="Inventory.html">
-          <img src="assets/img/sidebaricon.png" alt="not">
-          <span>Products</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="Inventory.html">
-          <img src="assets/img/sidebaricon.png" alt="not">
-          <span>Sales</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="Inventory.html">
+        <a class="nav-link " href="Orders.html">
           <img src="assets/img/sidebaricon.png" alt="not">
           <span>Orders</span>
         </a>
@@ -213,7 +285,7 @@
           <div class="row bg-white">
 <div class="sub-inventory">
 <h6>Inventory</h6>
-<button>+ New Stock</button>
+<button data-bs-toggle="modal" data-bs-target="#addStock">+ New Stock</button>
 </div>
 <div class="searchandtable">
 

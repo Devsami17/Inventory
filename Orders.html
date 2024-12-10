@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Receiving</title>
+  <title>Orders</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -42,7 +42,68 @@
 </head>
 
 <body>
+  <div class="modal fade" id="addOrderModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Order</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+       <form action="Users.html">
 
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Item Name :</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+          </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Order Qty :</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+        </div>
+     
+  
+ 
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Item Color :</label>
+          <select class="form-select ">
+            <option value="">White</option>
+            <option value="">Black</option>
+            <option value="">Red</option>
+            <option value="">Deep Purple</option>
+            <option value="">Blue</option>
+
+
+          </select>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Item Price :</label>
+            <input type="number" class="form-control" id="formGroupExampleInput" placeholder="">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Status :</label>
+            <select class="form-select ">
+                <option value="">Active</option>
+                <option value="">Repairing Solution</option>
+                <option value="">Received</option>
+                <option value="">Testing</option>
+                <option value="">Carlos</option>
+                <option value="">Bobs Polishing</option>
+                <option value="">Returns</option>
+                <option value="">Salvage Stuff</option>
+                <option value="">Stock</option>
+  
+  
+            </select>
+          </div>
+       </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -164,21 +225,21 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link  " href="Inventory.html">
           <img src="assets/img/sidebaricon.png" alt="not">
           <span>Inventory</span>
         </a>
       </li>
-   
-      <li class="nav-item">
-        <a class="nav-link " href="Orders.html">
+ 
+      <li class="nav-item active">
+        <a class="nav-link  " href="Inventory.html">
           <img src="assets/img/sidebaricon.png" alt="not">
           <span>Orders</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="Users.html">
+      <li class="nav-item  ">
+        <a class="nav-link  " href="Users.html">
           <img src="assets/img/sidebaricon.png" alt="not">
           <span>Users</span>
         </a>
@@ -201,8 +262,8 @@
         <div class="col-lg-12">
           <div class="row bg-white">
 <div class="sub-inventory">
-<h6 class="w-100 d-flex justify-content-center">Receiving</h6>
-<!-- <button>+ New Stock</button> -->
+<h6 class="w-100 d-flex justify-content-center">Orders</h6>
+<button type="button"  data-bs-toggle="modal" data-bs-target="#addOrderModel">+ Order</button>
 </div>
 <div class="searchandtable">
 
@@ -216,15 +277,12 @@
 </div>
 <div class="calender-parent">
 
-  <div class="dropdown-calender">
-    <select id="pageSelector">
-        <option value="inventory.html" >Status</option>
-        <option value="Receiving.html" selected>Received</option>
-        <option value="Products.html">Group</option>
-        <option value="Testing.html">Testing</option>
-        <option value="Return.html" >Return</option>
-    </select>
-</div>
+    <div class="calender">
+        <span class="calender-icon">
+            <img src="assets/img/calnderpng.png" alt="t">
+        </span>
+        <input type="date" class="d-none">
+    </div>
 </div>
 </div>
 <div class="respo-table">
@@ -236,69 +294,40 @@
         <th>
           <input type="checkbox" name="checkbox" class="checkbox">
         </th>        
-        <th>IMEI</th>
-        <th>Model</th>
-        <th>Storage</th>
-        <th>Color</th>
-        <th>Grade</th>
-        <th>Location</th>
+        <th>Order No</th>
+        <th>Order Item</th>
+        <th>Quantity</th>
+        <th>Item Color</th>
+        <th>Price</th>
         <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-        <tr>
-            <th>
-              <input type="checkbox" name="checkbox" class="checkbox">
-            </th>
-            <td>12345678900</td>
-            <td>Iphone 12</td>
-            <td>256</td>
-            <td>White</td>
-            <td>AB</td>
-            <td>Receiving</td>
-            <td><span class="status received">Received</span></td>
-          </tr>
-          <tr>
-            <th>
-              <input type="checkbox" name="checkbox" class="checkbox">
-            </th>
-            <td>12345678900</td>
-            <td>Iphone 12</td>
-            <td>256</td>
-            <td>White</td>
-            <td>AB</td>
-            <td>Receiving</td>
-            <td><span class="status received">Received</span></td>
-          </tr>
-          <tr>
-            <th>
-              <input type="checkbox" name="checkbox" class="checkbox">
-            </th>
-            <td>12345678900</td>
-            <td>Iphone 12</td>
-            <td>256</td>
-            <td>White</td>
-            <td>AB</td>
-            <td>Receiving</td>
-            <td><span class="status received">Received</span></td>
-          </tr>
-          <tr>
-            <th>
-              <input type="checkbox" name="checkbox" class="checkbox">
-            </th>
-            <td>12345678900</td>
-            <td>Iphone 12</td>
-            <td>256</td>
-            <td>White</td>
-            <td>AB</td>
-            <td>Receiving</td>
-            <td><span class="status received">Received</span></td>
-          </tr>
+      <tr>
+        <th>
+          <input type="checkbox" name="checkbox" class="checkbox">
+        </th>
+        <td>012333</td>
+        <td>iPhone 16 Pro</td>
+        <td>01</td>
+        <td>Black</td>
+        <td>$1100</td>
+        <td><span class="status active">Active</span></td>
+        <td class="action-td"><a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Edit</a></li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+                <li><a class="dropdown-item" href="#">Preview</a></li>
+              </ul>
+        </a></td>
+        
+      </tr>
+ 
 
     </tbody>
   </table>
 </div>
-
 </div>
 
      

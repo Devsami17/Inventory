@@ -1697,3 +1697,72 @@ margin: 0 auto;
   font-size: 14px;
   border-radius: 4px;
 }
+#addUserModal , #addStock , #addOrderModel{
+  --bs-modal-width: 700px;
+}
+#permissions option:checked {
+  background-color: #1e88e5;
+  color: white;
+}
+.custom-multi-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-box {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none;
+}
+
+.options-container.active {
+  display: block;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.option:last-child {
+  border-bottom: none;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+.option.selected {
+  background-color: #1e88e5;
+  color: white;
+}
+.btn-primary{
+  background-color: #1e88e5 !important;
+}
+
+.action-td a{
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}

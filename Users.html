@@ -42,7 +42,77 @@
 </head>
 
 <body>
+  <div class="modal fade" id="addUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add User</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+       <form action="Users.html">
 
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">User Email :</label>
+          <input type="email" class="form-control" id="formGroupExampleInput" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Password :</label>
+          <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Permissions :</label>
+<br>
+          <div class="custom-multi-select">
+            <div class="select-box" id="selectBox">
+              <span id="selectedValues">Select Permissions</span>
+              <span>&#9660;</span>
+            </div>
+            <div class="options-container" id="optionsContainer">
+              <div class="option" data-value="Settings">Settings</div>
+              <div class="option" data-value="Inventory">Inventory</div>
+              <div class="option" data-value="Reports">Reports</div>
+              <div class="option" data-value="Users">Users</div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Default Group :</label>
+          <select class="form-select ">
+            <option value="">Testing</option>
+            <option value="">Admin</option>
+
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Role :</label>
+          <select class="form-select ">
+            <option value="">Manager</option>
+            <option value="">Admin</option>
+            <option value="">Super Admin</option>
+            <option value="">Customer</option>
+
+
+
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">IP Restrictions :</label>
+          <select class="form-select ">
+            <option value="">No Restrictions</option>
+            <option value="">Restrictions</option>
+
+          </select>
+        </div>
+       </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -170,20 +240,9 @@
           <span>Inventory</span>
         </a>
       </li>
+     
       <li class="nav-item">
-        <a class="nav-link " href="Inventory.html">
-          <img src="assets/img/sidebaricon.png" alt="not">
-          <span>Products</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="Inventory.html">
-          <img src="assets/img/sidebaricon.png" alt="not">
-          <span>Sales</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="Inventory.html">
+        <a class="nav-link " href="Orders.html">
           <img src="assets/img/sidebaricon.png" alt="not">
           <span>Orders</span>
         </a>
@@ -213,7 +272,7 @@
           <div class="row bg-white">
 <div class="sub-inventory">
 <h6 class="w-100 d-flex justify-content-center">Users</h6>
-<button>+ User</button>
+<button type="button"  data-bs-toggle="modal" data-bs-target="#addUserModal">+ User</button>
 </div>
 <div class="searchandtable">
 
@@ -326,7 +385,41 @@
         dateInput.valueAsDate = new Date(); 
     });
 });
+const selectBox = document.getElementById('selectBox');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const selectedValues = document.getElementById('selectedValues');
 
+    const selectedOptions = new Set();
+
+    selectBox.addEventListener('click', () => {
+      optionsContainer.classList.toggle('active');
+    });
+
+    optionsContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('option')) {
+        const option = e.target;
+        const value = option.dataset.value;
+
+        if (selectedOptions.has(value)) {
+          selectedOptions.delete(value);
+          option.classList.remove('selected');
+        } else {
+          selectedOptions.add(value);
+          option.classList.add('selected');
+        }
+
+       
+        const values = Array.from(selectedOptions).join(', ') || 'Select options';
+        selectedValues.textContent = values;
+      }
+    });
+
+   
+    document.addEventListener('click', (e) => {
+      if (!selectBox.contains(e.target) && !optionsContainer.contains(e.target)) {
+        optionsContainer.classList.remove('active');
+      }
+    });
   </script>
 
 </body>
